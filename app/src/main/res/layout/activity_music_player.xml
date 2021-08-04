@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/player_background"
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".MusicPlayerActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_song_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:text="Faded- Alan Walker"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="italic" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_music"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginBottom="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/music_icon_2"
+            app:civ_border_color="@color/red"
+            app:civ_border_width="2dp" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <SeekBar
+                android:id="@+id/seekbar_progress"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:layout_margin="20dp"
+                android:layout_marginBottom="40dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_song_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="false"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="20dp"
+                android:layout_toStartOf="@id/seekbar_progress"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="00:10"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_song_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="false"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="20dp"
+                android:layout_toEndOf="@id/seekbar_progress"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="04:10"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btn_play"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:padding="2dp"
+                android:src="@drawable/icon_pause"
+                app:tint="@color/red" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btn_play_next"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignTop="@id/btn_play"
+                android:layout_alignBottom="@id/btn_play"
+                android:layout_marginVertical="8dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_toEndOf="@id/btn_play"
+                android:src="@drawable/icon_play_next"
+                app:tint="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btn_play_previous"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignTop="@id/btn_play"
+                android:layout_alignBottom="@id/btn_play"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="24dp"
+                android:layout_toStartOf="@id/btn_play"
+                android:rotation="180"
+                android:src="@drawable/icon_play_next"
+                app:tint="@color/white" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btn_play_forward"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignTop="@id/btn_play"
+                android:layout_alignBottom="@id/btn_play"
+                android:layout_marginVertical="8dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_toEndOf="@id/btn_play_next"
+                android:src="@drawable/icon_forward"
+                app:tint="@color/white" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/btn_play_backward"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_alignTop="@id/btn_play"
+                android:layout_alignBottom="@id/btn_play"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="24dp"
+                android:layout_toStartOf="@id/btn_play_previous"
+                android:rotation="180"
+                android:src="@drawable/icon_forward"
+                app:tint="@color/white" />
+
+            <com.gauravk.audiovisualizer.visualizer.BarVisualizer xmlns:custom="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/visualizer"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_alignParentBottom="true"
+                custom:avColor="@color/red"
+                custom:avDensity="0.5"
+                custom:avSpeed="normal"
+                custom:avType="outline"
+                custom:avWidth="4dp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
